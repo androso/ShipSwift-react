@@ -1,0 +1,4 @@
+{
+  "name": "ShipSwift",
+  "install": "bash .cursor/install.sh"
+}
