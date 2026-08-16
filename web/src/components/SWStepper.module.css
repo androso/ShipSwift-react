@@ -1,0 +1,38 @@
+.stepper {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  font-size: 22px;
+  line-height: 1;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  transition: opacity 0.15s ease, background 0.15s ease;
+}
+
+.button:hover:not(:disabled) {
+  background: rgba(127, 127, 127, 0.15);
+}
+
+.button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.value {
+  min-width: 26px;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
