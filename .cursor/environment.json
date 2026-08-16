@@ -1,0 +1,14 @@
+{
+  "name": "ShipSwift (React port)",
+  "install": "bash .cursor/install.sh",
+  "terminals": [
+    {
+      "name": "web-dev",
+      "command": "npm --prefix web run dev -- --host 0.0.0.0",
+      "description": "Vite dev server for the React/TypeScript port in web/. Serves on port 5173 with hot module reload."
+    }
+  ],
+  "ports": [
+    { "name": "web", "port": 5173 }
+  ]
+}

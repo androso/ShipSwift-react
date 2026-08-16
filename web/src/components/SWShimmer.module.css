@@ -1,0 +1,33 @@
+.wrapper {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.band {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    115deg,
+    transparent 0%,
+    transparent 35%,
+    rgba(255, 255, 255, 0.35) 50%,
+    transparent 65%,
+    transparent 100%
+  );
+  transform: translateX(-150%);
+  animation-name: sweep;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes sweep {
+  0% {
+    transform: translateX(-150%);
+  }
+  60%,
+  100% {
+    transform: translateX(150%);
+  }
+}
