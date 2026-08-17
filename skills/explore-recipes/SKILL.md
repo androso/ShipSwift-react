@@ -8,7 +8,7 @@ description: >
 
 # Explore ShipSwift Recipes
 
-Browse the full catalog of ShipSwift components — production-ready SwiftUI implementations.
+Browse the full catalog of ShipSwift components — production-ready React + TypeScript implementations.
 
 ## Workflow
 
@@ -16,11 +16,10 @@ Browse the full catalog of ShipSwift components — production-ready SwiftUI imp
 
    | Category | Count | Examples |
    |----------|-------|---------|
-   | Animation | 9 | Shimmer, Typewriter, GlowSweep, MeshGradient, OrbitingLogos |
-   | Chart | 8 | Line, Bar, Area, Donut, Ring, Radar, Scatter, Heatmap |
-   | Component | 13 | Alert, Loading, Onboarding, Stepper, FloatingLabels |
-   | Module | 7 | Auth, Camera, Chat, Paywall, Settings, SubjectLifting, TikTokTracking |
-   | Util | 5 | Date/String/View extensions, DebugLog, LocationManager |
+   | Animation | 40+ | Shimmer, Typewriter, Plasma, Glass, Transitions |
+   | Chart | 9 | Line, Bar, Area, Donut, Ring, Radar, Scatter, Heatmap, Network |
+   | Component | 22 | Alert, Loading, Onboarding, Stepper, FloatingLabels |
+   | Util | shader runtime, Date/String helpers, DebugLog, LocationManager |
 
 2. **Show details on request**: When the user picks a component, read the source file and present:
    - What it does
@@ -38,4 +37,4 @@ Browse the full catalog of ShipSwift components — production-ready SwiftUI imp
 
 - Present in a scannable format (tables or bullet lists).
 - When showing details, include the file path so the user can find it.
-- All source is local under `ShipSwift/SWPackage/` — no network required.
+- All source is local under `src/swpackage/` — no network required.
