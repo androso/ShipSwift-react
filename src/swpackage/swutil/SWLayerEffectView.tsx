@@ -68,17 +68,42 @@ async function snapshotNode(node: HTMLElement): Promise<HTMLCanvasElement | null
   out.height = height;
   const ctx = out.getContext("2d");
   if (!ctx) return null;
-  if (img && img.complete && img.naturalWidth) {
-    ctx.drawImage(img, 0, 0, width, height);
+
+  const fillFallback = () => {
+    const bg = getComputedStyle(node).backgroundColor;
+    ctx.fillStyle = bg && bg !== "rgba(0, 0, 0, 0)" ? bg : "#222";
+    ctx.fillRect(0, 0, width, height);
     return out;
+  };
+
+  if (img) {
+    try {
+      if (!img.complete) await img.decode();
+    } catch {
+      /* keep going */
+    }
+    if (img.naturalWidth) {
+      try {
+        ctx.drawImage(img, 0, 0, width, height);
+        ctx.getImageData(0, 0, 1, 1);
+        return out;
+      } catch {
+        /* tainted image; fall through */
+      }
+    }
   }
   if (video && video.readyState >= 2) {
     ctx.drawImage(video, 0, 0, width, height);
     return out;
   }
   if (sourceCanvas && sourceCanvas.width) {
-    ctx.drawImage(sourceCanvas, 0, 0, width, height);
-    return out;
+    try {
+      ctx.drawImage(sourceCanvas, 0, 0, width, height);
+      ctx.getImageData(0, 0, 1, 1);
+      return out;
+    } catch {
+      return fillFallback();
+    }
   }
   try {
     const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">
@@ -93,11 +118,18 @@ async function snapshotNode(node: HTMLElement): Promise<HTMLCanvasElement | null
     });
     ctx.drawImage(image, 0, 0, width, height);
     URL.revokeObjectURL(url);
+    ctx.getImageData(0, 0, 1, 1);
     return out;
   } catch {
-    ctx.fillStyle = "#222";
-    ctx.fillRect(0, 0, width, height);
-    return out;
+    const fresh = document.createElement("canvas");
+    fresh.width = width;
+    fresh.height = height;
+    const freshCtx = fresh.getContext("2d");
+    if (!freshCtx) return null;
+    const bg = getComputedStyle(node).backgroundColor;
+    freshCtx.fillStyle = bg && bg !== "rgba(0, 0, 0, 0)" ? bg : "#222";
+    freshCtx.fillRect(0, 0, width, height);
+    return fresh;
   }
 }
 
@@ -195,9 +227,13 @@ export function SWLayerEffectView({
         lastSnap = t;
         const snap = await snapshotNode(content);
         if (snap) {
-          gl.bindTexture(gl.TEXTURE_2D, texture);
-          gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, 1);
-          gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, snap);
+          try {
+            gl.bindTexture(gl.TEXTURE_2D, texture);
+            gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, 1);
+            gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, snap);
+          } catch {
+            // Cross-origin snapshots taint the canvas; keep the previous texture.
+          }
         }
       }
       gl.viewport(0, 0, w, h);

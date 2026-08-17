@@ -208,8 +208,10 @@ button {
 .sw-page-fill {
   display: flex;
   flex-direction: column;
+  height: 100dvh;
   min-height: 100dvh;
   padding-bottom: 0;
+  overflow: hidden;
 }
 
 .sw-page-fill .sw-demo-body {
@@ -920,7 +922,7 @@ button {
 .sw-shader-stage {
   width: 100%;
   flex: 1;
-  min-height: 0;
+  min-height: calc(100dvh - 56px);
   height: 100%;
   background: #000;
   position: relative;

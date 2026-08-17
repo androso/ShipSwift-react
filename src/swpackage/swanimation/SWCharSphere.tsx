@@ -69,47 +69,35 @@ export function SWCharSphere({
     hidesBackFaces,
   });
 
-  useEffect(() => {
-    setLocal({
-      chars,
-      glyphCount,
-      colors,
-      background,
-      morphAmount,
-      rotationSpeed,
-      fadeSeconds,
-      waitSeconds,
-      fontSize,
-      fontWeight,
-      hidesBackFaces,
-    });
-  }, [
-    chars,
-    glyphCount,
-    colors,
-    background,
-    morphAmount,
-    rotationSpeed,
-    fadeSeconds,
-    waitSeconds,
-    fontSize,
-    fontWeight,
-    hidesBackFaces,
-  ]);
+  const valuesIn = showsControls
+    ? local
+    : {
+        chars,
+        glyphCount,
+        colors,
+        background,
+        morphAmount,
+        rotationSpeed,
+        fadeSeconds,
+        waitSeconds,
+        fontSize,
+        fontWeight,
+        hidesBackFaces,
+      };
 
   const renderer = (
     <SWCharSphereRenderer
-      chars={local.chars}
-      glyphCount={local.glyphCount}
-      colors={local.colors}
-      background={local.background}
-      morphAmount={local.morphAmount}
-      rotationSpeed={local.rotationSpeed}
-      fadeSeconds={local.fadeSeconds}
-      waitSeconds={local.waitSeconds}
-      fontSize={local.fontSize}
-      fontWeight={local.fontWeight}
-      hidesBackFaces={local.hidesBackFaces}
+      chars={valuesIn.chars}
+      glyphCount={valuesIn.glyphCount}
+      colors={valuesIn.colors}
+      background={valuesIn.background}
+      morphAmount={valuesIn.morphAmount}
+      rotationSpeed={valuesIn.rotationSpeed}
+      fadeSeconds={valuesIn.fadeSeconds}
+      waitSeconds={valuesIn.waitSeconds}
+      fontSize={valuesIn.fontSize}
+      fontWeight={valuesIn.fontWeight}
+      hidesBackFaces={valuesIn.hidesBackFaces}
       style={showsControls ? { width: "100%", height: "100%" } : style}
       className={showsControls ? undefined : className}
     />

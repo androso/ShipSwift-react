@@ -38,29 +38,18 @@ export function SWDotSphere({
     dotSize,
   });
 
-  useEffect(() => {
-    setLocal({
-      dotCount,
-      colors,
-      background,
-      morphAmount,
-      rotationSpeed,
-      fadeSeconds,
-      waitSeconds,
-      dotSize,
-    });
-  }, [dotCount, colors, background, morphAmount, rotationSpeed, fadeSeconds, waitSeconds, dotSize]);
+  const valuesIn = showsControls ? local : { dotCount, colors, background, morphAmount, rotationSpeed, fadeSeconds, waitSeconds, dotSize };
 
   const renderer = (
     <SWDotSphereRenderer
-      dotCount={local.dotCount}
-      colors={local.colors}
-      background={local.background}
-      morphAmount={local.morphAmount}
-      rotationSpeed={local.rotationSpeed}
-      fadeSeconds={local.fadeSeconds}
-      waitSeconds={local.waitSeconds}
-      dotSize={local.dotSize}
+      dotCount={valuesIn.dotCount}
+      colors={valuesIn.colors}
+      background={valuesIn.background}
+      morphAmount={valuesIn.morphAmount}
+      rotationSpeed={valuesIn.rotationSpeed}
+      fadeSeconds={valuesIn.fadeSeconds}
+      waitSeconds={valuesIn.waitSeconds}
+      dotSize={valuesIn.dotSize}
       className={showsControls ? undefined : className}
       style={showsControls ? { width: "100%", height: "100%" } : style}
     />
