@@ -136,6 +136,8 @@ const ICONS: Record<string, string> = {
   "arrow.left.and.right": "M4 12h16M8 8 4 12l4 4m8-8 4 4-4 4",
   eye: "M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12zm10-3a3 3 0 1 1 0 6 3 3 0 0 1 0-6z",
   "eye.slash": "M3 3l18 18M10 10a3 3 0 0 0 4 4M2 12s4-7 10-7c1.5 0 2.8.3 4 .9M22 12s-4 7-10 7c-1.5 0-2.8-.3-4-.9",
+  "wand.and.stars": "M4 20l8-8M14 6l4 4M15 3v3M21 9h-3M19 4l-2 2M8 15l2 2",
+  swift: "M4 16c6-2 10-8 14-12-2 6-2 10 2 14-6-1-11 0-16-2z",
   "xmark.circle": "M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zm-3 6 6 6m0-6-6 6",
 };
 
@@ -154,6 +156,9 @@ export function SWSymbol({
 }) {
   const d = ICONS[name] ?? ICONS[name.replace(".fill", "")] ?? ICONS.sparkles;
   const fill = name.includes(".fill") || name.endsWith("fill") ? color : "none";
+=======
+  const fill = name.includes(".fill") || name === "apple.logo" ? color : "none";
+>>>>>>> cursor/port-swmetal-wrappers-8ada
   return (
     <svg
       width={size}
