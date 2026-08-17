@@ -18,7 +18,7 @@ export function SWScrollingFAQ({
   /** Optional title displayed above the scrolling rows. */
   title?: string | null;
   /** Callback when a question pill is tapped. */
-  onTap: (question: string) => void;
+  onTap?: (question: string) => void;
 }) {
   return (
     <div style={{ padding: "16px 0", display: "grid", gap: 8 }}>
@@ -55,7 +55,7 @@ function InfiniteRow({
 }: {
   questions: string[];
   direction: "left" | "right";
-  onTap: (question: string) => void;
+  onTap?: (question: string) => void;
 }) {
   const scrollerRef = useRef<HTMLDivElement>(null);
   const copies = [...questions, ...questions, ...questions];
@@ -113,7 +113,7 @@ function InfiniteRow({
           key={`${question}-${index}`}
           type="button"
           className="sw-faq-pill"
-          onClick={() => onTap(question)}
+          onClick={() => onTap?.(question)}
         >
           {question}
         </button>

@@ -33,6 +33,11 @@ CLAUDE.md
 # Secrets (never commit real credentials)
 SWSecrets.swift
 
+# Node / Vite
+node_modules/
+dist/
+*.local
+
 # Misc
 *.hmap
 *.o

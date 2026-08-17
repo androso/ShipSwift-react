@@ -155,10 +155,10 @@ export function SWSymbol({
   className?: string;
 }) {
   const d = ICONS[name] ?? ICONS[name.replace(".fill", "")] ?? ICONS.sparkles;
-  const fill = name.includes(".fill") || name.endsWith("fill") ? color : "none";
-=======
-  const fill = name.includes(".fill") || name === "apple.logo" ? color : "none";
->>>>>>> cursor/port-swmetal-wrappers-8ada
+  const fill =
+    name.includes(".fill") || name.endsWith("fill") || name === "apple.logo"
+      ? color
+      : "none";
   return (
     <svg
       width={size}

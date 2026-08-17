@@ -836,3 +836,75 @@ button {
   border-radius: 50%;
   flex: 0 0 auto;
 }
+
+.sw-list-item-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 17px;
+}
+
+.sw-list-item p {
+  margin: 6px 0 0;
+  font-size: 13px;
+  color: var(--sw-secondary-label);
+  line-height: 1.35;
+}
+
+.sw-home {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 16px 16px 32px;
+}
+
+.sw-home-hero {
+  text-align: center;
+  padding: 24px 8px 8px;
+}
+
+.sw-home-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.sw-module-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  text-align: left;
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  background: var(--sw-surface-secondary);
+  text-decoration: none;
+}
+
+.sw-terminal {
+  font-family: var(--sw-mono);
+  font-size: 13px;
+  background: color-mix(in srgb, var(--sw-accent) 10%, transparent);
+  border-radius: 8px;
+  padding: 12px 14px;
+  position: relative;
+  border: none;
+  width: 100%;
+  text-align: left;
+}
+
+.sw-demo-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  min-height: 60vh;
+}
+
+.sw-shader-stage {
+  width: 100%;
+  min-height: calc(100dvh - 120px);
+  background: #000;
+}

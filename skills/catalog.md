@@ -1,102 +1,106 @@
 # ShipSwift Recipe Catalog
 
-All source files are under `ShipSwift/SWPackage/`. Each component is self-contained — copy the file(s) plus `SWUtil/` into your project.
+All source files are under `src/swpackage/`. Each component is self-contained — copy the file(s) plus `swutil/` into your Vite + React + TypeScript project.
 
-## Animation (`SWAnimation/`)
-
-| Component | File | Description |
-|-----------|------|-------------|
-| AnimatedMeshGradient | `SWAnimatedMeshGradient.swift` | Animated mesh gradient background |
-| BeforeAfterSlider | `SWBeforeAfterSlider.swift` | Drag-to-compare before/after image slider |
-| GlowSweep | `SWGlowSweep.swift` | Glowing sweep animation overlay |
-| LightSweep | `SWLightSweep.swift` | Light sweep / skeleton loading effect |
-| OrbitingLogos | `SWOrbitingLogos.swift` | Logos orbiting around a center point |
-| ScanningOverlay | `SWScanningOverlay.swift` | Scanning line animation overlay |
-| ShakingIcon | `SWShakingIcon.swift` | Icon with shake animation on trigger |
-| Shimmer | `SWShimmer.swift` | Shimmer / skeleton loading placeholder |
-| TypewriterText | `SWTypewriterText.swift` | Character-by-character typing animation |
-
-## Chart (`SWChart/`)
+## Animation (`swanimation/`)
 
 | Component | File | Description |
 |-----------|------|-------------|
-| ActivityHeatmap | `SWActivityHeatmap.swift` | GitHub-style contribution heatmap |
-| AreaChart | `SWAreaChart.swift` | Filled area chart with gradient |
-| BarChart | `SWBarChart.swift` | Vertical bar chart |
-| DonutChart | `SWDonutChart.swift` | Donut / pie chart with center label |
-| LineChart | `SWLineChart.swift` | Line chart with markers |
-| RadarChart | `SWRadarChart.swift` | Spider / radar chart |
-| RingChart | `SWRingChart.swift` | Circular progress ring chart |
-| ScatterChart | `SWScatterChart.swift` | Scatter plot chart |
+| AnimatedMeshGradient | `SWAnimatedMeshGradient.tsx` | Animated mesh gradient background |
+| BeforeAfterSlider | `SWBeforeAfterSlider.tsx` | Drag-to-compare before/after image slider |
+| GlowSweep | `SWGlowSweep.tsx` | Glowing sweep animation overlay |
+| LightSweep | `SWLightSweep.tsx` | Light sweep / skeleton loading effect |
+| OrbitingLogos | `SWOrbitingLogos.tsx` | Logos orbiting around a center point |
+| ScanningOverlay | `SWScanningOverlay.tsx` | Scanning line animation overlay |
+| ShakingIcon | `SWShakingIcon.tsx` | Icon with shake animation on trigger |
+| Shimmer | `SWShimmer.tsx` | Shimmer / skeleton loading placeholder |
+| TypewriterText | `SWTypewriterText.tsx` | Character-by-character typing animation |
+| Confetti | `SWConfetti.tsx` | Canvas confetti / fireworks overlay |
+| Transition | `SWTransition.tsx` | 16 enter/exit view transitions |
+| ChangeEffect | `SWChangeEffect.tsx` | Value-change micro-interactions |
+| DotSphere | `SWDotSphere.tsx` | Canvas 3D Fibonacci dot sphere |
+| CharSphere | `SWCharSphere.tsx` | Canvas 3D glyph sphere |
 
-## Component — Display (`SWComponent/Display/`)
+## Metal / WebGL (`swanimation/swmetal/`)
 
-| Component | File | Description |
-|-----------|------|-------------|
-| BulletPointText | `SWBulletPointText.swift` | Styled bullet point list |
-| FloatingLabels | `SWFloatingLabels.swift` | Floating animated labels |
-| GradientDivider | `SWGradientDivider.swift` | Gradient-styled divider line |
-| Label | `SWLabel.swift` | Styled label with icon support |
-| MarkdownText | `SWMarkdownText.swift` | Markdown-rendered text view |
-| OnboardingView | `SWOnboardingView.swift` | Multi-page onboarding flow |
-| OrderView | `SWOrderView.swift` | Order / receipt summary view |
-| RootTabView | `SWRootTabView.swift` | Tab bar navigation root view |
-| RotatingQuote | `SWRotatingQuote.swift` | Auto-rotating quote display |
-| ScrollingFAQ | `SWScrollingFAQ+iOS.swift` | Expandable FAQ list (iOS) |
+Procedural backgrounds and content-sampling effects. Each recipe is a `.tsx` wrapper plus a `.frag` GLSL shader.
 
-## Component — Feedback (`SWComponent/Feedback/`)
+Plasma · Dots · Starfield · StarNest · FractalClouds · InkSmoke · LiquidChrome · AnimatedLoop · Metaballs · GrainGradient · NeuroNoise · DotOrbit · Voronoi · SimplexNoise · ColorPanels · SmokeRing · Swirl · Glass · GlassLogo · GlassOrb · Halftone · Water · LiquidMetal · Foil · Glitter · IntenseBling · ChromaticGlass · PolishedAluminum
+
+## Chart (`swchart/`)
 
 | Component | File | Description |
 |-----------|------|-------------|
-| Alert | `SWAlert.swift` | Custom alert with SWAlertManager |
-| Loading | `SWLoading.swift` | Page loading overlay |
-| ThinkingIndicator | `SWThinkingIndicator.swift` | AI thinking / typing indicator |
+| ActivityHeatmap | `SWActivityHeatmap.tsx` | GitHub-style contribution heatmap |
+| AreaChart | `SWAreaChart.tsx` | Filled area chart with gradient |
+| BarChart | `SWBarChart.tsx` | Vertical bar chart |
+| DonutChart | `SWDonutChart.tsx` | Donut / pie chart with center label |
+| LineChart | `SWLineChart.tsx` | Line chart with markers |
+| RadarChart | `SWRadarChart.tsx` | Spider / radar chart |
+| RingChart | `SWRingChart.tsx` | Circular progress ring chart |
+| ScatterChart | `SWScatterChart.tsx` | Scatter plot chart |
+| NetworkGraph | `SWNetworkGraph.tsx` | Interactive 3D knowledge graph |
 
-## Component — Input (`SWComponent/Input/`)
+## Component — Display (`swcomponent/display/`)
 
 | Component | File | Description |
 |-----------|------|-------------|
-| AddSheet | `SWAddSheet.swift` | Bottom sheet for adding items |
-| Stepper | `SWStepper.swift` | Custom stepper control |
-| TabButton | `SWTabButton.swift` | Styled tab bar button |
+| BulletPointText | `SWBulletPointText.tsx` | Styled bullet point list |
+| FloatingLabels | `SWFloatingLabels.tsx` | Floating animated labels |
+| GradientDivider | `SWGradientDivider.tsx` | Gradient-styled divider line |
+| Label | `SWLabel.tsx` | Styled label with icon support |
+| MarkdownText | `SWMarkdownText.tsx` | Markdown-rendered text view |
+| OnboardingView | `SWOnboardingView.tsx` | Multi-page onboarding flow |
+| OrderView | `SWOrderView.tsx` | Order / receipt summary view |
+| RootTabView | `SWRootTabView.tsx` | Tab bar navigation root view |
+| RotatingQuote | `SWRotatingQuote.tsx` | Auto-rotating quote display |
+| ScrollingFAQ | `SWScrollingFAQ.tsx` | Infinite FAQ pill marquee |
+| Wallet | `SWWallet.tsx` | Payment card stack |
+| VideoPlayer | `SWVideoPlayer.tsx` | HTML5 video player |
+| StatusBadge | `SWStatusBadge.tsx` | Semantic status capsule |
+| KPICard | `SWKPICard.tsx` | Dashboard metric card |
+| ImageThumbnail | `SWImageThumbnail.tsx` | Square image tile |
 
-## Module (`SWModule/`)
+## Component — Feedback (`swcomponent/feedback/`)
 
-Multi-file modules. Copy the entire module folder plus `SWUtil/`.
+| Component | File | Description |
+|-----------|------|-------------|
+| Alert | `SWAlert.tsx` | Custom alert with SWAlertManager |
+| Loading | `SWLoading.tsx` | Page loading overlay |
+| ThinkingIndicator | `SWThinkingIndicator.tsx` | AI thinking / typing indicator |
 
-| Module | Files | Description |
-|--------|-------|-------------|
-| **SWAuth** | `SWAuthView+iOS.swift`, `SWAuthView+macOS.swift`, `SWUserManager.swift`, `SWCountryData.swift`, `SWAgreementChecker.swift` | Authentication with Amplify/Cognito — social login, email/password, phone sign-in with country code picker |
-| **SWCamera** | `SWCameraManager+iOS.swift`, `SWCameraView+iOS.swift`, `SWFaceCameraView+iOS.swift`, `SWFaceLandmark+iOS.swift` | Camera capture with viewfinder, zoom, photo picker, face detection with Vision landmarks |
-| **SWChat** | `SWChatView+iOS.swift`, `SWChatInputView+iOS.swift`, `SWMessageList+iOS.swift`, `SWVolcEngineASRService+iOS.swift` | Chat view with message list, text input, optional voice recognition (VolcEngine ASR) |
-| **SWPaywall** | `SWPaywallView.swift`, `SWStoreManager.swift` | StoreKit 2 subscription paywall |
-| **SWSetting** | `SWSettingView+iOS.swift`, `SWSettingView+macOS.swift` | Settings page with language switch, share, legal links |
-| **SWSubjectLifting** | `SWSubjectLiftingManager+iOS.swift`, `SWSubjectLiftingView+iOS.swift` | Background removal using VisionKit |
-| **SWTikTokTracking** | `SWTikTokTrackingManager+iOS.swift`, `SWTikTokTrackingView+iOS.swift` | TikTok Events API attribution tracking |
+## Component — Input (`swcomponent/input/`)
 
-## Utilities (`SWUtil/`)
+| Component | File | Description |
+|-----------|------|-------------|
+| AddSheet | `SWAddSheet.tsx` | Bottom sheet for adding items |
+| SearchBar | `SWSearchBar.tsx` | Frosted capsule search field |
+| Stepper | `SWStepper.tsx` | Custom stepper control |
+| TabButton | `SWTabButton.tsx` | Styled tab bar button |
+
+## Utilities (`swutil/`)
 
 | File | Description |
 |------|-------------|
-| `SWDateExtension.swift` | Date formatting extensions |
-| `SWDebugLog.swift` | Debug logging utility |
-| `SWLocationManager.swift` | Location manager wrapper |
-| `SWStringExtension.swift` | String utility extensions |
-| `SWViewExtension.swift` | View modifier extensions (`.swAlert()`, `.swPageLoading()`, `.swPrimary`) |
+| `SWDate.ts` | Date formatting helpers |
+| `SWDebugLog.ts` | Debug logging utility |
+| `SWLocationManager.ts` | Geolocation API wrapper |
+| `SWString.ts` | String utility helpers |
+| `SWViewStyles.tsx` | Button and card styles |
+| `SWShaderView.tsx` | WebGL colorEffect runtime |
+| `SWLayerEffectView.tsx` | WebGL layerEffect runtime |
 
 ## Dependency Rules
 
 ```
-SWUtil         ← no dependencies
-SWAnimation    ← SWUtil only
-SWChart        ← SWUtil only
-SWComponent    ← SWUtil only
-SWModule       ← SWUtil + SWComponent + same-module files
+swutil         ← no dependencies
+swanimation    ← swutil only
+swchart        ← swutil only
+swcomponent    ← swutil only
 ```
 
 ## Naming Conventions
 
-- Types: `SW` prefix (`SWAlertManager`, `SWStoreManager`)
-- View modifiers: `.sw` prefix (`.swAlert()`, `.swPageLoading()`)
-- iOS-only files: `+iOS` suffix
-- macOS-only files: `+macOS` suffix
+- Types: `SW` prefix (`SWAlertManager`, `SWPlasma`)
+- File name matches primary export
+- No TypeScript enums — use string union types

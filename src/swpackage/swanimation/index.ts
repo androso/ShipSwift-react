@@ -43,3 +43,4 @@ export {
   SWParticleTransitionShowcase,
   type SWParticleTransitionKind,
 } from "./SWParticleTransition";
+export * from "./swmetal";
