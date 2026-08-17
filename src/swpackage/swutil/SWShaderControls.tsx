@@ -22,7 +22,7 @@ export function SWShaderControlsSheet({
 }) {
   const [open, setOpen] = useState(false);
   return (
-    <div style={{ position: "relative", width: "100%", height: "100%", minHeight: 280 }}>
+    <div style={{ position: "relative", width: "100%", height: "100%", minHeight: 0 }}>
       <div style={{ position: "absolute", inset: 0 }}>{children}</div>
       <button
         type="button"

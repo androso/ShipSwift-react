@@ -205,6 +205,20 @@ button {
   padding-bottom: calc(var(--sw-tab-height) + var(--sw-safe-bottom) + 16px);
 }
 
+.sw-page-fill {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  padding-bottom: 0;
+}
+
+.sw-page-fill .sw-demo-body {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
 .sw-nav-header {
   position: sticky;
   top: 0;
@@ -905,6 +919,14 @@ button {
 
 .sw-shader-stage {
   width: 100%;
-  min-height: calc(100dvh - 120px);
+  flex: 1;
+  min-height: 0;
+  height: 100%;
   background: #000;
+  position: relative;
+}
+
+.sw-shader-stage > * {
+  width: 100%;
+  height: 100%;
 }

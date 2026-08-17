@@ -11,7 +11,7 @@ import {
 export const shaderFillStyle: CSSProperties = {
   width: "100%",
   height: "100%",
-  minHeight: 320,
+  minHeight: 0,
 };
 
 export type SWTilt = { width: number; height: number };

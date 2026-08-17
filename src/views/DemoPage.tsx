@@ -13,7 +13,7 @@ export function DemoPage({
 }) {
   const navigate = useNavigate();
   return (
-    <div className="sw-page">
+    <div className={pad ? "sw-page" : "sw-page sw-page-fill"}>
       <header className="sw-nav-header">
         <button type="button" className="sw-nav-back" onClick={() => navigate(-1)}>
           ‹ Back
@@ -22,7 +22,9 @@ export function DemoPage({
           {title}
         </h1>
       </header>
-      <div style={{ padding: pad ? 16 : 0, minHeight: "70vh" }}>{children}</div>
+      <div className="sw-demo-body" style={{ padding: pad ? 16 : 0, minHeight: pad ? "70vh" : undefined }}>
+        {children}
+      </div>
     </div>
   );
 }

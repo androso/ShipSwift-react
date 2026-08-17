@@ -302,6 +302,8 @@ export function SWHolographicCardShowcase() {
   return (
     <div
       style={{
+        flex: 1,
+        width: "100%",
         minHeight: "100%",
         background: "linear-gradient(#f2f5fa, #d9dee8)",
         color: "#111",
