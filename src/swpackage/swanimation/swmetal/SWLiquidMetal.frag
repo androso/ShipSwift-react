@@ -194,7 +194,7 @@ uniform float uBandSoftness;
 }
 
  vec2 swLM_rotate(vec2 uv, float th) {
-    float2x2 m = float2x2(cos(th), sin(th), -sin(th), cos(th));
+    mat2 m = mat2(cos(th), sin(th), -sin(th), cos(th));
     return m * uv;
 }
 

@@ -94,10 +94,10 @@ vec4 swStarNest(vec2 position, vec4 color, vec4 boundingRect, float time, float 
     float a2 = angleY;
 
     // GLSL `mat2(cos,sin,-sin,cos)` is column-major: first column (cos, sin),
-    // second column (-sin, cos). Metal's float2x2(col0, col1) matches that, so
-    // float2x2(vec2(c, s), vec2(-s, c)) is the identical rotation matrix.
-    float2x2 rot1 = float2x2(vec2(cos(a1), sin(a1)), vec2(-sin(a1), cos(a1)));
-    float2x2 rot2 = float2x2(vec2(cos(a2), sin(a2)), vec2(-sin(a2), cos(a2)));
+    // second column (-sin, cos). Metal's mat2(col0, col1) matches that, so
+    // mat2(vec2(c, s), vec2(-s, c)) is the identical rotation matrix.
+    mat2 rot1 = mat2(vec2(cos(a1), sin(a1)), vec2(-sin(a1), cos(a1)));
+    mat2 rot2 = mat2(vec2(cos(a2), sin(a2)), vec2(-sin(a2), cos(a2)));
 
     // `dir.xz *= rot1; dir.xy *= rot2;` — rotate the swizzled pair, write back.
     vec2 dxz = rot1 * vec2(dir.x, dir.z);

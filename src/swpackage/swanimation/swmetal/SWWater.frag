@@ -90,9 +90,9 @@ uniform vec4 uColorHighlight;
 // =============================================================================
 
 // 2D rotation matrix.
- float2x2 swW_rot2(float r) {
+ mat2 swW_rot2(float r) {
     float c = cos(r), s = sin(r);
-    return float2x2(c, s, -s, c);
+    return mat2(c, s, -s, c);
 }
 
 // Smooth box that fades a `uv ∈ [0, 1]` rectangle's edges (per-axis fwidth).
@@ -113,7 +113,7 @@ uniform vec4 uColorHighlight;
  float swW_caustic(vec2 uv, float t, float scale) {
     vec2 n = vec2(0.1);
     vec2 N = vec2(0.1);
-    float2x2 m = swW_rot2(0.5);
+    mat2 m = swW_rot2(0.5);
     for (int j = 0; j < 6; j++) {
         uv = m * uv;
         n  = m * n;

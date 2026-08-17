@@ -139,11 +139,10 @@ vec4 swVoronoi(vec2 position, vec4 inColor, vec4 boundingRect, float time, float
     float countF = float(countI);
 
     float mixerA = shape * (countF - 1.0);
-    (void)mixerA;
     float mixer = (shape - 0.5 / countF) * countF;
     float steps = max(1.0, stepsPerColor);
 
-    vec4 colors[5] = { c1, c2, c3, c4, c5 };
+    vec4 colors[5] = vec4[]( c1, c2, c3, c4, c5 );
 
     vec4 gradient = colors[0];
     gradient = vec4(vec3(gradient.rgb) * gradient.a, gradient.a);

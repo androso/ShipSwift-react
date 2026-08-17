@@ -99,8 +99,8 @@ vec4 swMetaballsFountain(vec2 position, vec4 inColor, vec4 boundingRect, float t
 
     float t = time * speed;
 
-    vec4 colors[8] = { color1, color2, color3, color4,
-                        color5, color6, color7, color8 };
+    vec4 colors[8] = vec4[]( color1, color2, color3, color4,
+                        color5, color6, color7, color8 );
     int colorsCountInt = max(int(colorsCount + 0.5), 1);
 
     vec3 totalColor = vec3(0.0);

@@ -288,7 +288,7 @@ vec4 swHalftoneDots(vec2 position, int layer, vec4 boundingRect, float type, flo
     cellsPerSide /= stepMultiplier;
     float cellSizeY = 1.0 / cellsPerSide;
     vec2 pad = cellSizeY * vec2(1.0 / max(aspect, 1e-4), 1.0);
-    if (typeI == 1 & hexGrid) {
+    if (typeI == 1 && hexGrid) {
         // gooey + hex: shrink pad to keep cells overlapping properly.
         pad *= 0.7;
     }

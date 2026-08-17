@@ -140,10 +140,9 @@ vec4 swDotOrbit(vec2 position, vec4 inColor, vec4 boundingRect, float time, floa
     // Two-step mixer — the second assignment is the one that actually
     // drives the gradient (the first is unused; kept for clarity).
     float mixerA = shape * (countF - 1.0);
-    (void)mixerA;
     float mixer = (shape - 0.5 / countF) * countF;
 
-    vec4 colors[10] = { c1, c2, c3, c4, c5, c6, c7, c8, c9, c10 };
+    vec4 colors[10] = vec4[]( c1, c2, c3, c4, c5, c6, c7, c8, c9, c10 );
 
     vec4 gradient = colors[0];
     vec3 g_rgb = vec3(gradient.rgb) * gradient.a;

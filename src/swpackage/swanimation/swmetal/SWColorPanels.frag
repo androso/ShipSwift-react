@@ -198,7 +198,7 @@ vec4 swColorPanels(vec2 position, vec4 currentColor, vec4 boundingRect, float ti
     bool  edges         = (edgesF > 0.5);
 
     for (int set = 0; set < 2; set++) {
-        bool isForward = (set == 0 & !reverseTime) || (set == 1 & reverseTime);
+        bool isForward = (set == 0 && !reverseTime) || (set == 1 && reverseTime);
         if (!isForward) continue;
 
         // Forward-rotating panels.

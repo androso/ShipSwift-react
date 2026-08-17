@@ -49,7 +49,7 @@ uniform float uSeparation;
 // MARK: - swChromaticGlass
 // =============================================================================
 
-[[stitchable]] vec4 swChromaticGlass(
+vec4 swChromaticGlass(
     vec2 position,
     int layer,
     vec4 boundingRect,
@@ -94,47 +94,6 @@ uniform float uSeparation;
     result.rgb += centerGlow;
 
     return result;
-}
-
-vec4 swChromaticGlass(vec2 position, int layer, vec4 boundingRect, vec2 tilt, float time, float intensity, float 1.0)) {
-
-    vec2 size = boundingRect.zw;
-    vec2 uv = position / size;
-
-    // Chromatic offset based on tilt and position
-    // Stronger at edges, follows tilt direction
-    vec2 center = vec2(0.5, 0.5);
-    vec2 fromCenter = uv - center;
-    float edgeFactor = length(fromCenter) * 2.0; // 0 at center, 1 at corners
-    edgeFactor = pow(edgeFactor, 1.5); // Non-linear falloff
-
-    // Offset direction influenced by tilt
-    vec2 offsetDir = normalize(fromCenter + tilt * 0.3 + 0.001);
-    // Keep a baseline split even at the centre (the 0.15 floor) so the RGB
-    // fringing reads clearly across the whole photo, then ramp up at edges.
-    float offsetAmount = separation * (edgeFactor * 0.85 + 0.15) * 14.0; // pixels
-
-    // Sample each channel at slightly different positions
-    vec2 redOffset = offsetDir * offsetAmount;
-    vec2 blueOffset = -offsetDir * offsetAmount;
-
-    vec4 redSample = layerSample(position + redOffset);
-    vec4 greenSample = layerSample(position);
-    vec4 blueSample = layerSample(position + blueOffset);
-
-    vec4 result;
-    float h_intensity = float(intensity);
-    result.r = mix(greenSample.r, redSample.r, h_intensity);
-    result.g = greenSample.g;
-    result.b = mix(greenSample.b, blueSample.b, h_intensity);
-    result.a = greenSample.a;
-
-    // Add subtle brightness boost at center
-    float centerGlow = smoothstep(0.7, 0.0, length(fromCenter)) * 0.03 * intensity;
-    result.rgb += centerGlow;
-
-    return result;
-
 }
 
 void main() {

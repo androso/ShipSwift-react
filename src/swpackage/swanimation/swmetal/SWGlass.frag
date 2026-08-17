@@ -229,7 +229,7 @@ vec4 swGlass(vec2 position, int layer, vec4 boundingRect, float shape, vec2 cent
     const float GOLD  = 2.39996323; // golden angle (radians)
 
     vec3 rgb;
-    if (!doBlur & !doChroma) {
+    if (!doBlur && !doChroma) {
         // Cheapest path: a single sharp tap at the bent UV.
         rgb = vec3(layerSample(lensUV * size).rgb);
     } else {

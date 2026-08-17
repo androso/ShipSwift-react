@@ -76,7 +76,7 @@ uniform float uIntensity;
 
 /// Multi-stop rainbow gradient (7 colors).
  vec3 swAlu_rainbowGradient(float t) {
-    vec3 colors[7] = {
+    vec3 colors[7] = vec3[](
         vec3(1.0, 0.0, 0.0),   // Red
         vec3(1.0, 0.5, 0.0),   // Orange
         vec3(1.0, 1.0, 0.0),   // Yellow
@@ -84,7 +84,7 @@ uniform float uIntensity;
         vec3(0.0, 0.5, 1.0),   // Blue
         vec3(0.3, 0.0, 1.0),   // Indigo
         vec3(0.5, 0.0, 0.5)    // Violet
-    };
+    );
 
     float scaledT = fract(t) * 6.0;
     int index = int(scaledT);

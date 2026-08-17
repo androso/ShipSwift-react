@@ -79,13 +79,6 @@ uniform vec4 uBackground;
 // MARK: - Warp
 
 vec4 swAnimatedLoopDiamond(vec2 position, vec4 color, vec4 boundingRect, float time, float speed, float lineWidth, float lines, float spacing, float channelOffset, float patternMod, float rotation, float scale, vec2 center, float shape, float petals, float angularLobes, float angularAmount, float angularSpeed, vec4 color1, vec4 color2, vec4 color3, vec4 background) {
-
-    (void)shape;
-    (void)petals;
-    (void)angularLobes;
-    (void)angularAmount;
-    (void)angularSpeed;
-
     vec2 size = boundingRect.zw;
     vec2 uv   = (position * 2.0 - size) / min(size.x, size.y);
 
@@ -102,7 +95,7 @@ vec4 swAnimatedLoopDiamond(vec2 position, vec4 color, vec4 boundingRect, float t
     float pmm = max(patternMod, 0.0001);
     float m   = mod(uv.x * uv.y, pmm);
 
-    vec3 ch[3] = { vec3(color1.rgb), vec3(color2.rgb), vec3(color3.rgb) };
+    vec3 ch[3] = vec3[]( vec3(color1.rgb), vec3(color2.rgb), vec3(color3.rgb) );
 
     vec3 col = vec3(0.0);
     for (int j = 0; j < 3; j++) {

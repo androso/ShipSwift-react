@@ -108,8 +108,8 @@ vec4 swMetaballs(vec2 position, vec4 inColor, vec4 boundingRect, float time, flo
     float t = 0.2 * (time * speed + firstFrameOffset);
 
     // Pack the 8 color slots so the loop can index by ball.
-    vec4 colors[8] = { color1, color2, color3, color4,
-                        color5, color6, color7, color8 };
+    vec4 colors[8] = vec4[]( color1, color2, color3, color4,
+                        color5, color6, color7, color8 );
     int colorsCountInt = max(int(colorsCount + 0.5), 1);
 
     // Unrolled to 8 iterations to fit SwiftUI's stitchable color shaders'

@@ -52,11 +52,6 @@ uniform float uDepthFade;
 // "unused on purpose" decision explicit.
 
 vec4 swDotsFlow(vec2 position, vec4 color, vec4 boundingRect, float time, float speed, float brightness, vec4 tint, vec4 background, float dotSize, float gridDensity, float patternScale, float vignette, float horizon, float amplitude, float depthFade) {
-
-    (void)horizon;
-    (void)amplitude;
-    (void)depthFade;
-
     vec2 size = boundingRect.zw;
     vec2 uv   = (position - 0.5 * size) / size.y;
     float  t    = time * speed;

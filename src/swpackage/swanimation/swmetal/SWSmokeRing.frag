@@ -183,7 +183,7 @@ vec4 swSmokeRing(vec2 position, vec4 currentColor, vec4 boundingRect, float time
 
     float atg = atan(uv.y, uv.x) + 0.001;
     float l   = length(uv);
-    float radialOffset = 0.5 * l - rsqrt(max(1e-4, l));
+    float radialOffset = 0.5 * l - inversesqrt(max(1e-4, l));
 
     vec2 polar1 = vec2(atg, localTime1 - radialOffset) * noiseScale;
     vec2 polar2 = vec2(atg, localTime2 - radialOffset) * noiseScale;
